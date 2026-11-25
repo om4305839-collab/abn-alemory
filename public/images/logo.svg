@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="كشري ابن العمراوي">
+  <rect width="128" height="128" rx="30" fill="#5b3a22"/>
+  <path d="M40 38c-6-7 6-10 0-18M64 38c-6-7 6-10 0-18M88 38c-6-7 6-10 0-18" fill="none" stroke="#dcc6a4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M24 60h80c0 26-17 44-40 44S24 86 24 60z" fill="#fbf7f0"/>
+  <path d="M30 60h68" stroke="#b8834f" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="48" cy="76" r="4.5" fill="#b8834f"/>
+  <circle cx="64" cy="84" r="4.5" fill="#8a5a36"/>
+  <circle cx="80" cy="76" r="4.5" fill="#b8834f"/>
+  <circle cx="56" cy="70" r="3.2" fill="#8a5a36"/>
+  <circle cx="72" cy="70" r="3.2" fill="#8a5a36"/>
+  <rect x="44" y="104" width="40" height="6" rx="3" fill="#dcc6a4"/>
+</svg>

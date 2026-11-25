@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      # dummy values: pages are dynamic and nothing connects to the DB at build time
+      DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
+      APP_SECRET: ci-only-secret-ci-only-secret-ci-only-secret-0000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx next typegen
+      - run: npm run lint
+      - run: npm exec tsc -- --noEmit
+      - run: npm run build
+      - name: Known-vulnerability scan (production dependencies)
+        run: npm audit --omit=dev --audit-level=high
+      - name: Secret scan (fail on committed .env files)
+        run: |
+          if git ls-files | grep -E '^\.env($|\.)' | grep -v '^\.env\.example$'; then
+            echo "A .env file is tracked by git!"; exit 1
+          fi
